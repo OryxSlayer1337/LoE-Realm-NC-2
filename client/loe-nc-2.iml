@@ -2,14 +2,14 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="LoE Realm NC">
     <configurations>
-      <configuration name="LoE Realm NC" main-class="WebMain" output-file="build-3.2.12.swf" output-folder="$MODULE_DIR$/release">
-        <dependencies target-player="18.0">
+      <configuration name="LoE Realm NC" main-class="WebMain" output-file="Vortex_Realms.swf" output-folder="$MODULE_DIR$/release">
+        <dependencies target-player="31.0">
           <entries>
             <entry library-id="5aae583f-abea-482e-9c5e-e8ffaead6593">
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="Flex SDK 4.9.1" />
+          <sdk name="flex sdk 4.9.1" />
         </dependencies>
         <compiler-options>
           <map>
@@ -34,7 +34,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Flex SDK 4.9.1" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="jdk" jdkName="flex sdk 4.9.1" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library type="flex">

@@ -20,8 +20,8 @@ namespace LoESoft.Core.config
 
         public static readonly ServerMode SERVER_MODE = ServerMode.Production;
         public static readonly bool ENABLE_RESTART_SYSTEM = SERVER_MODE == ServerMode.Production;
-        public static readonly int RESTART_DELAY_MINUTES = 45;
-        public static readonly int RESTART_APPENGINE_DELAY_MINUTES = 30;
+        public static readonly int RESTART_DELAY_MINUTES = 60;
+        public static readonly int RESTART_APPENGINE_DELAY_MINUTES = 120;
         public static readonly DateTimeKind DateTimeKind = DateTimeKind.Utc;
 
         public static double GetEventRate() => DateTime.UtcNow > EVENT_OVER ? 1 : EVENT_RATE;

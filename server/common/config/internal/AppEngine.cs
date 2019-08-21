@@ -13,13 +13,13 @@ namespace LoESoft.Core.config
         {
             public static readonly string TITLE = "[LoESoft] (New Chicago) LoE Realm - AppEngine";
             public static readonly string FILE = ProcessFile("appengine");
-            public static readonly int PRODUCTION_PORT = 7000;
+            public static readonly int PRODUCTION_PORT = 8080;
 
             public static readonly List<(string name, string dns)> SERVERS = new List<(string, string)> {
-                ("Chicago", "loe-nc.portmap.io")
+                ("Chicago", "25.106.37.217")
             };
 
-            public static readonly string SAFE_DOMAIN = "https://devwarlt.github.io/";
+            public static readonly string SAFE_DOMAIN = "https://oryxslayer1337.github.io/";
 
             public class ServerItem
             {
