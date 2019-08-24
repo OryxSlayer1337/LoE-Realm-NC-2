@@ -397,7 +397,7 @@ namespace LoESoft.GameServer.realm.commands
                 return false;
             }
 
-            if (player.Stars >= 14 || player.AccountType != (int)AccountType.REGULAR)
+            if (player.Stars >= 0 || player.AccountType != (int)AccountType.REGULAR)
                 player.Client.Reconnect(new RECONNECT()
                 {
                     Host = "",
@@ -500,7 +500,7 @@ namespace LoESoft.GameServer.realm.commands
                 return false;
             }
 
-            if (player.Stars >= 14 || player.AccountType != (int)AccountType.REGULAR)
+            if (player.Stars >= 0 || player.AccountType != (int)AccountType.REGULAR)
             {
                 player.Move(1478.5f, 1086.5f);
                 player.Owner.BroadcastMessage(new GOTO

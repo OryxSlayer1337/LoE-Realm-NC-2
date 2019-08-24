@@ -23,9 +23,10 @@ namespace LoESoft.GameServer.realm.commands
 
         protected override bool Process(Player player, RealmTime time, string[] args)
         {
-            if (Settings.SERVER_MODE == Settings.ServerMode.Production)
+            if (player.AccountId != "1")
+
             {
-                player.SendInfo("You cannot use this feature along Production mode.");
+                player.SendHelp("You cannot use this command! Not enought permission");
                 return false;
             }
 
@@ -199,9 +200,10 @@ namespace LoESoft.GameServer.realm.commands
 
         protected override bool Process(Player player, RealmTime time, string[] args)
         {
-            if (Settings.SERVER_MODE == Settings.ServerMode.Production)
+            if (player.AccountId != "1")
+
             {
-                player.SendInfo("You cannot use this feature along Production mode.");
+                player.SendHelp("You cannot use this command! Not enought permission");
                 return false;
             }
 
@@ -248,6 +250,7 @@ namespace LoESoft.GameServer.realm.commands
         }
     }
 
+
     internal class GiveCommand : Command
     {
         public GiveCommand() : base("give", (int)AccountType.MOD)
@@ -262,11 +265,12 @@ namespace LoESoft.GameServer.realm.commands
 
         protected override bool Process(Player player, RealmTime time, string[] args)
         {
-            if (Settings.SERVER_MODE == Settings.ServerMode.Production)
-            {
-                player.SendInfo("You cannot use this feature along Production mode.");
-                return false;
-            }
+            if (player.AccountId != "1")
+            
+                {
+                    player.SendHelp("You cannot use this command! Not enought permission");
+                    return false;
+                }
 
             if (args.Length == 0)
             {
@@ -355,102 +359,7 @@ namespace LoESoft.GameServer.realm.commands
         }
     }
 
-    internal class Max : Command
-    {
-        public Max() : base("max", (int)AccountType.DEVELOPER)
-        {
-        }
-
-        protected override bool Process(Player player, RealmTime time, string[] args)
-        {
-            if (Settings.SERVER_MODE == Settings.ServerMode.Production)
-            {
-                player.SendInfo("You cannot use this feature along Production mode.");
-                return false;
-            }
-
-            try
-            {
-                var target = args[0];
-
-                if (!string.IsNullOrEmpty(target) && player.AccountType >= (int)AccountType.DEVELOPER)
-                {
-                    if (target == "all" && player.AccountType == (int)AccountType.DEVELOPER)
-                    {
-                        var count = 0;
-
-                        player.Owner.Players.Values.ToList().Where(players => players != null).Where(players =>
-                            !(players.Stats[0] == players.ObjectDesc.MaxHitPoints && players.Stats[1] == players.ObjectDesc.MaxMagicPoints &&
-                            players.Stats[2] == players.ObjectDesc.MaxAttack && players.Stats[3] == players.ObjectDesc.MaxDefense &&
-                            players.Stats[4] == players.ObjectDesc.MaxSpeed && players.Stats[5] == players.ObjectDesc.MaxHpRegen &&
-                            players.Stats[6] == players.ObjectDesc.MaxMpRegen && players.Stats[7] == players.ObjectDesc.MaxDexterity)).Select(players =>
-                        {
-                            players.Stats[0] = players.ObjectDesc.MaxHitPoints;
-                            players.Stats[1] = players.ObjectDesc.MaxMagicPoints;
-                            players.Stats[2] = players.ObjectDesc.MaxAttack;
-                            players.Stats[3] = players.ObjectDesc.MaxDefense;
-                            players.Stats[4] = players.ObjectDesc.MaxSpeed;
-                            players.Stats[5] = players.ObjectDesc.MaxHpRegen;
-                            players.Stats[6] = players.ObjectDesc.MaxMpRegen;
-                            players.Stats[7] = players.ObjectDesc.MaxDexterity;
-                            players.SaveToCharacter();
-                            players.UpdateCount++;
-
-                            if (player.Name != players.Name)
-                                players.SendInfo($"You were maxed to 8/8 by {player.Name}.");
-                            else
-                                players.SendInfo("You maxed yourself!");
-
-                            count++;
-
-                            return players;
-                        }).ToList();
-
-                        player.SendInfo($"You maxed {count} player{(count > 1 ? "s" : "")} from world '{player.Owner.Name}'.");
-                    }
-                    else
-                    {
-                        var otherPlayer = player.Owner.Players.Values.FirstOrDefault(tplayer => tplayer.Name.ToLower() == target.ToLower());
-
-                        if (otherPlayer == null)
-                            player.SendInfo("Player not found.");
-                        else
-                        {
-                            otherPlayer.Stats[0] = otherPlayer.ObjectDesc.MaxHitPoints;
-                            otherPlayer.Stats[1] = otherPlayer.ObjectDesc.MaxMagicPoints;
-                            otherPlayer.Stats[2] = otherPlayer.ObjectDesc.MaxAttack;
-                            otherPlayer.Stats[3] = otherPlayer.ObjectDesc.MaxDefense;
-                            otherPlayer.Stats[4] = otherPlayer.ObjectDesc.MaxSpeed;
-                            otherPlayer.Stats[5] = otherPlayer.ObjectDesc.MaxHpRegen;
-                            otherPlayer.Stats[6] = otherPlayer.ObjectDesc.MaxMpRegen;
-                            otherPlayer.Stats[7] = otherPlayer.ObjectDesc.MaxDexterity;
-                            otherPlayer.SaveToCharacter();
-                            otherPlayer.UpdateCount++;
-
-                            player.SendInfo($"You maxed the player {otherPlayer.Name}!");
-                        }
-                    }
-
-                    return true;
-                }
-
-                player.Stats[0] = player.ObjectDesc.MaxHitPoints;
-                player.Stats[1] = player.ObjectDesc.MaxMagicPoints;
-                player.Stats[2] = player.ObjectDesc.MaxAttack;
-                player.Stats[3] = player.ObjectDesc.MaxDefense;
-                player.Stats[4] = player.ObjectDesc.MaxSpeed;
-                player.Stats[5] = player.ObjectDesc.MaxHpRegen;
-                player.Stats[6] = player.ObjectDesc.MaxMpRegen;
-                player.Stats[7] = player.ObjectDesc.MaxDexterity;
-                player.SaveToCharacter();
-                player.UpdateCount++;
-                player.SendInfo("You maxed yourself!");
-            }
-            catch { player.SendError("An error occurred while maxing stats..."); }
-
-            return true;
-        }
-    }
+   
 
     internal class Announcement : Command
     {
@@ -702,5 +611,69 @@ namespace LoESoft.GameServer.realm.commands
             player.SendInfo($"Cannot change your size (min: {minSize}, max: {maxSize}, you wrote: {size})!");
             return false;
         }
+
+        public class ExpCommand : Command
+        {
+            public ExpCommand() : base("exp", (int)AccountType.DEVELOPER) { }
+
+            protected override bool Process(Player player, RealmTime time, string[] args)
+            {
+                if (args.Length == 0)
+                {
+                    player.SendHelp("Usage: /exp <experience>");
+                    return false;
+                }
+
+                if (int.TryParse(args[0], out int experience))
+                {
+                    player.Experience += experience;
+                    player.FakeExperience += experience;
+                    player.UpdateCount++;
+
+                    player.SendHelp($"You gained {experience} experience!");
+
+                    return true;
+                }
+                else
+                {
+                    player.SendHelp("Invalid experience parameter, use integer value type of.");
+                    return false;
+                }
+            }
+        }
+
+        internal class LevelCommand : Command
+        {
+            public LevelCommand()
+                : base("level", 1)
+            {
+            }
+
+            protected override bool Process(Player player, RealmTime time, string[] args)
+            {
+                try
+                {
+                    if (args.Length == 0)
+                    {
+                        player.SendHelp("Use /level <ammount>");
+                        return false;
+                    }
+                    if (args.Length == 1)
+                    {
+                        player.Client.Character.Level = int.Parse(args[0]);
+                        player.Client.Player.Level = int.Parse(args[0]);
+                        player.UpdateCount++;
+                        player.SendInfo("Success!");
+                    }
+                }
+                catch
+                {
+                    player.SendError("Error!");
+                    return false;
+                }
+                return true;
+            }
+        }
+
     }
 }

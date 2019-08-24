@@ -153,7 +153,7 @@
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
 		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
 		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
-		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
+		<LevelIncrease min="1" max="2">Dexterity</LevelIncrease>
 		<LevelIncrease min="1" max="2">HpRegen</LevelIncrease>
 		<LevelIncrease min="0" max="2">MpRegen</LevelIncrease>
 		<UnlockLevel level="5" type="0x0300">Rogue</UnlockLevel>

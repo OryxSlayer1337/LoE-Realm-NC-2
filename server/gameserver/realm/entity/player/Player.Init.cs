@@ -187,10 +187,10 @@ namespace LoESoft.GameServer.realm.entity.player
                 Stats[1] = Level * mp + 100; // mp
                 Stats[2] = 0; // old attack
                 Stats[3] = 0; // old defense
-                Stats[4] = Level / 2; // spd
-                Stats[5] = 10; // default hp
-                Stats[6] = 10; // default wis
-                Stats[7] = 25; // default dex
+                Stats[4] = Level / 2 + 10; // spd
+                Stats[5] = Level / 2 + 10; // vit
+                Stats[6] = Level / 2 + 10; // wis
+                Stats[7] = Level / 1 + 10; // dex
 
                 for (var i = 0; i < SlotTypes.Length; i++)
                     if (SlotTypes[i] == 0)
@@ -367,14 +367,14 @@ namespace LoESoft.GameServer.realm.entity.player
                 }
             }
 
-            Stats[0] = newlvl * hp + 100; // hp
-            Stats[1] = newlvl * mp + 100; // mp
+            Stats[0] = Level * hp + 100; // hp
+            Stats[1] = Level * mp + 100; // mp
             Stats[2] = 0; // old attack
             Stats[3] = 0; // old defense
-            Stats[4] = newlvl / 2; // spd
-            Stats[5] = 10; // default hp
-            Stats[6] = 10; // default wis
-            Stats[7] = 25; // default dex
+            Stats[4] = Level / 2 + 10; // spd
+            Stats[5] = Level / 2 + 10; // vit
+            Stats[6] = Level / 2 + 10; // wis
+            Stats[7] = Level / 1 + 10; // dex
             Fame = 0;
             Level = newlvl;
             Experience = newexp;
@@ -786,10 +786,10 @@ namespace LoESoft.GameServer.realm.entity.player
                 Stats[1] = Level * mp + 100; // mp
                 Stats[2] = 0; // old attack
                 Stats[3] = 0; // old defense
-                Stats[4] = Level / 2; // spd
-                Stats[5] = 10; // default hp
-                Stats[6] = 10; // default wis
-                Stats[7] = 25; // default dex
+                Stats[4] = Level / 2 + 10; // spd
+                Stats[5] = Level / 2 + 10; // vit
+                Stats[6] = Level / 2 + 10; // wis
+                Stats[7] = Level / 1 + 10; // dex
 
                 HP = Stats[0] + Boost[0];
                 MP = Stats[1] + Boost[1];

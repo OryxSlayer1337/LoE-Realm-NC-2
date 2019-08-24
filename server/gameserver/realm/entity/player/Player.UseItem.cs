@@ -598,7 +598,7 @@ namespace LoESoft.GameServer.realm.entity.player
                                 return true;
                             }
 
-                            if (Stars >= 10 || AccountPerks.ByPassKeysRequirements())
+                            if (Stars >= 1 || AccountPerks.ByPassKeysRequirements())
                             {
                                 if (!GameServer.Manager.GameData.IdToObjectType.TryGetValue(eff.Id, out ushort objType) || !GameServer.Manager.GameData.Portals.ContainsKey(objType))
                                 {
@@ -875,7 +875,7 @@ namespace LoESoft.GameServer.realm.entity.player
                             int chance = eff.Chance;
                             int minStars = item.MinStars;
 
-                            if (Stars >= minStars || AccountPerks.ByPassEggsRequirements())
+                            if (Stars <= minStars || AccountPerks.ByPassEggsRequirements())
                             {
                                 if (Owner.Name == "Vault")
                                 {
