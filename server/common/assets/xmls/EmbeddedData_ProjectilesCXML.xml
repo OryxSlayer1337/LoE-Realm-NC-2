@@ -608,6 +608,14 @@
 		</Texture>
 		<Rotation>300</Rotation>
 	</Object>
+  <Object type="0xb00a" id="Blood Mage Spell Shot">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0x0e</Index>
+    </Texture>
+    <Rotation>300</Rotation>
+  </Object>
 	<Object type="0x004f" id="Steel Claw">
 		<Class>Projectile</Class>
 		<Texture>
@@ -3345,6 +3353,14 @@
 		</Texture>
 		<AngleCorrection>1</AngleCorrection>
 	</Object>
+  <Object type="0x739e" id="Blood Mage's Staff Shot">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0x0d</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
 	<Object type="0x739f" id="Rose Shot">
 		<Class>Projectile</Class>
 		<Texture>

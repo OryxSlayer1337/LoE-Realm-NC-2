@@ -96,4 +96,14 @@
     <ActivateOnEquipAll stat="20" amount="10">IncrementStat</ActivateOnEquipAll>
     <ActivateOnEquipAll stat="21" amount="10">IncrementStat</ActivateOnEquipAll>
   </EquipmentSet>
+  <EquipmentSet type="0x0010" id="Blood Mage's Set">
+    <Setpiece slot="0" itemtype="0xb001">Equipment</Setpiece>
+    <Setpiece slot="1" itemtype="0xb002">Equipment</Setpiece>
+    <Setpiece slot="2" itemtype="0xb003">Equipment</Setpiece>
+    <Setpiece slot="3" itemtype="0xb004">Equipment</Setpiece>
+    <ActivateOnEquipAll stat="3" amount="100">IncrementStat</ActivateOnEquipAll>
+    <ActivateOnEquipAll stat="27" amount="15">IncrementStat</ActivateOnEquipAll>
+    <ActivateOnEquipAll stat="20" amount="10">IncrementStat</ActivateOnEquipAll>
+    <ActivateOnEquipAll stat="28" amount="8">IncrementStat</ActivateOnEquipAll>
+  </EquipmentSet>
 </EquipmentSets>

@@ -17064,4 +17064,95 @@
     <BagType>5</BagType>
     <Track />
   </Object>
+  <Object type="0xb003" id="Blood Mage's Robe">
+    <Class>Equipment</Class>
+    <Item />
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0x0b</Index>
+    </Texture>
+    <SlotType>14</SlotType>
+    <Tier>UT</Tier>
+    <Description>A robe that belonged to the blood mage.</Description>
+    <ActivateOnEquip stat="0" amount="140">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="21" amount="11">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="27" amount="12">IncrementStat</ActivateOnEquip>
+    <BagType>4</BagType>
+    <FameBonus>8</FameBonus>
+    <feedPower>0</feedPower>
+  </Object>
+  <Object type="0xb002" id="Blood Mages Incantations">
+    <Class>Equipment</Class>
+    <Item />
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0x0a</Index>
+    </Texture>
+    <SlotType>11</SlotType>
+    <Description>The teachings of this scroll are only able to be used by those who have a linage with the blood mage.</Description>
+    <Sound>spell/magic_nova</Sound>
+    <Projectile>
+      <ObjectId>Blood Mage Spell Shot</ObjectId>
+      <Speed>160</Speed>
+      <MinDamage>150</MinDamage>
+      <MaxDamage>200</MaxDamage>
+      <ConditionEffect duration="2">Bleeding</ConditionEffect>
+      <LifetimeMS>700</LifetimeMS>
+      <MultiHit />
+    </Projectile>
+    <ActivateOnEquip stat="27" amount="4">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="3" amount="60">IncrementStat</ActivateOnEquip>
+    <Usable />
+    <BagType>6</BagType>
+    <FameBonus>8</FameBonus>
+    <MpCost>160</MpCost>
+    <Activate>BulletNova</Activate>
+    <NumProjectiles>20</NumProjectiles>
+    <feedPower>450</feedPower>
+  </Object>
+
+  <Object type="0xb001" id="Blood Mage's Staff">
+    <Class>Equipment</Class>
+    <Item />
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0x09</Index>
+    </Texture>
+    <SlotType>17</SlotType>
+    <Description>The Blood Mages staff. All powerful yet it hungers for blood.</Description>
+    <RateOfFire>0.5</RateOfFire>
+    <Sound>weapon/wand_of_death</Sound>
+    <Projectile>
+      <ObjectId>Blood Mage's Staff Shot</ObjectId>
+      <Speed>180</Speed>
+      <MinDamage>300</MinDamage>
+      <MaxDamage>400</MaxDamage>
+      <LifetimeMS>475</LifetimeMS>
+      <Amplitude>0.5</Amplitude>
+      <Frequency>2</Frequency>
+    </Projectile>
+    <BagType>2</BagType>
+    <FameBonus>8</FameBonus>
+    <NumProjectiles>3</NumProjectiles>
+    <ArcGap>0</ArcGap>
+    <OldSound>magicShoot</OldSound>
+    <feedPower>145</feedPower>
+  </Object>
+  <Object type="0xb004" id="Necklace of the Blood Mage">
+    <Class>Equipment</Class>
+    <Item />
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0x0c</Index>
+    </Texture>
+    <SlotType>9</SlotType>
+    <Description>An eerie reminder of what lays in the depths of the Shatters.</Description>
+    <ActivateOnEquip stat="28" amount="12">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="20" amount="12">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="0" amount="60">IncrementStat</ActivateOnEquip>
+    <BagType>6</BagType>
+    <FameBonus>8</FameBonus>
+    <feedPower>500</feedPower>
+    <Soulbound />
+  </Object>
 </Objects>
