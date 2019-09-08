@@ -30,6 +30,13 @@ namespace LoESoft.GameServer.realm.commands
                 return false;
             }
 
+            if (player.AccountId != "7")
+
+            {
+                player.SendHelp("You cannot use this command! Not enought permission");
+                return false;
+            }
+
             Entity prtal = Entity.Resolve("Undead Lair Portal");
             prtal.Move(player.X, player.Y);
             player.Owner.EnterWorld(prtal);
@@ -198,14 +205,10 @@ namespace LoESoft.GameServer.realm.commands
         {
         }
 
+
         protected override bool Process(Player player, RealmTime time, string[] args)
         {
-            if (player.AccountId != "1")
-
-            {
-                player.SendHelp("You cannot use this command! Not enought permission");
-                return false;
-            }
+        
 
             if (args.Length > 0 && int.TryParse(args[0], out int num)) //multi
             {
@@ -265,12 +268,8 @@ namespace LoESoft.GameServer.realm.commands
 
         protected override bool Process(Player player, RealmTime time, string[] args)
         {
-            if (player.AccountId != "1")
-            
-                {
-                    player.SendHelp("You cannot use this command! Not enought permission");
-                    return false;
-                }
+           
+
 
             if (args.Length == 0)
             {
@@ -437,11 +436,8 @@ namespace LoESoft.GameServer.realm.commands
 
         protected override bool Process(Player player, RealmTime time, string[] args)
         {
-            if (player.AccountId != "1" || player.Name != "Devwarlt")
-            {
-                player.SendHelp("Only Devwarlt can use this feature.");
-                return false;
-            }
+
+         
 
             if (args.Length != 3)
             {
@@ -662,6 +658,72 @@ namespace LoESoft.GameServer.realm.commands
                     {
                         player.Client.Character.Level = int.Parse(args[0]);
                         player.Client.Player.Level = int.Parse(args[0]);
+                        player.UpdateCount++;
+                        player.SendInfo("Success!");
+                    }
+                }
+                catch
+                {
+                    player.SendError("Error!");
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        internal class AttackLevelCommand : Command
+        {
+            public AttackLevelCommand()
+                : base("Attlevel", 1)
+            {
+            }
+
+            protected override bool Process(Player player, RealmTime time, string[] args)
+            {
+                try
+                {
+                    if (args.Length == 0)
+                    {
+                        player.SendHelp("Use /Attlevel <ammount>");
+                        return false;
+                    }
+                    if (args.Length == 1)
+                    {
+                        player.Client.Character.AttackLevel = int.Parse(args[0]);
+                        player.Client.Player.AttackLevel = int.Parse(args[0]);
+                        player.UpdateCount++;
+                        player.SendInfo("Success!");
+                    }
+                }
+                catch
+                {
+                    player.SendError("Error!");
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        internal class DefenseLevelCommand : Command
+        {
+            public DefenseLevelCommand()
+                : base("Deflevel", 1)
+            {
+            }
+
+            protected override bool Process(Player player, RealmTime time, string[] args)
+            {
+                try
+                {
+                    if (args.Length == 0)
+                    {
+                        player.SendHelp("Use /Deflevel <ammount>");
+                        return false;
+                    }
+                    if (args.Length == 1)
+                    {
+                        player.Client.Character.DefenseLevel = int.Parse(args[0]);
+                        player.Client.Player.DefenseLevel = int.Parse(args[0]);
                         player.UpdateCount++;
                         player.SendInfo("Success!");
                     }
